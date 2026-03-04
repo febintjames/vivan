@@ -2,6 +2,7 @@ import { useState } from "react";
 
 const FAQItem = ({ q, a, defaultOpen = false }) => {
     const [open, setOpen] = useState(defaultOpen);
+    const isList = Array.isArray(a);
 
     return (
         <div
@@ -40,9 +41,17 @@ const FAQItem = ({ q, a, defaultOpen = false }) => {
             >
                 {a && (
                     <div className="pl-16 md:pl-[84px] pr-6 md:pr-10">
-                        <span className="font-inter text-base md:text-lg leading-7 md:leading-8 text-slate-custom-700">
-                            {a}
-                        </span>
+                        {isList ? (
+                            <ul className="m-0 p-0 list-none font-inter text-base md:text-lg leading-7 md:leading-8 text-slate-custom-700">
+                                {a.map((item) => (
+                                    <li key={item} className="mb-1">• {item}</li>
+                                ))}
+                            </ul>
+                        ) : (
+                            <div className="font-inter text-base md:text-lg leading-7 md:leading-8 text-slate-custom-700 whitespace-pre-line">
+                                {a}
+                            </div>
+                        )}
                     </div>
                 )}
             </div>

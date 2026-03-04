@@ -9,18 +9,68 @@ const ContactPage = ({ setPage }) => {
             a: "No. Our loan guidance and processing support is free of cost to the customer. (Any bank/NBFC processing fees are as per their official norms.)",
             open: true,
         },
-        { q: "Which loans do you help with?" },
-        { q: "How long does loan approval take?" },
-        { q: "Can you help if my loan was rejected earlier?" },
-        { q: "Do you provide loans from all banks?" },
-        { q: "Can I apply without visiting your office?" },
-        { q: "What documents are generally required?" },
-        { q: "Do you provide mutual fund SIP guidance?" },
-        { q: "Do you guarantee returns in mutual funds?" },
-        { q: "Do you help with insurance claims?" },
-        { q: "What types of insurance do you provide?" },
-        { q: "Where is your office located?" },
-        { q: "What are your working hours?" },
+        {
+            q: "Which loans do you help with?",
+            a: [
+                "Home loans",
+                "Personal loans",
+                "Business loans",
+                "Vehicle loans",
+                "Loan Against Property",
+                "MSME / Mudra loans",
+            ],
+        },
+        {
+            q: "How long does loan approval take?",
+            a: "Timelines depend on eligibility, documents, and the bank/NBFC. However, we speed up the process through proper document scrutiny and follow-ups.",
+        },
+        {
+            q: "Can you help if my loan was rejected earlier?",
+            a: "Yes. In many cases, rejection happens due to wrong bank selection, incorrect documentation, or eligibility mismatch. We review your case and suggest the best possible route.",
+        },
+        {
+            q: "Do you provide loans from all banks?",
+            a: "We facilitate loans through leading banks and NBFCs via our partner network. Availability depends on the customer’s eligibility, loan type, and bank policy at the time.",
+        },
+        {
+            q: "Can I apply without visiting your office?",
+            a: "Yes. You can contact us on WhatsApp and share the basic details. For final documentation and signing, physical verification may be required depending on the bank/NBFC.",
+        },
+        {
+            q: "What documents are generally required?",
+            a: [
+                "Aadhaar + PAN",
+                "Salary slips / bank statements",
+                "Business proof (for business loans)",
+                "Address proof",
+                "Property documents (for home loan/LAP)",
+            ],
+        },
+        {
+            q: "Do you provide mutual fund SIP guidance?",
+            a: "Yes. We help customers start SIPs and long-term investments through NJ Wealth based on their goals and risk profile.",
+        },
+        {
+            q: "Do you guarantee returns in mutual funds?",
+            a: "No. Mutual fund returns are market-linked. Disclaimer: Mutual fund investments are subject to market risks. Read all scheme-related documents carefully.",
+        },
+        {
+            q: "Do you help with insurance claims?",
+            a: "We provide guidance and support during claim processes, renewals, and policy servicing.",
+        },
+        {
+            q: "What types of insurance do you provide?",
+            a: [
+                "Life insurance",
+                "Health insurance / mediclaim",
+                "General insurance",
+                "Vehicle insurance",
+            ],
+        },
+        {
+            q: "Where is your office located?",
+            a: "Moidus Tower, 2nd Floor\nPost Office Junction, Thoppumpady\nKochi – 682005\nLandmark: Above Muthoot FinCorp",
+        },
     ];
 
     return (
@@ -79,7 +129,7 @@ const ContactPage = ({ setPage }) => {
                 <iframe
                     title="Vivian Business Solutions Location"
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3929.978152711064!2d76.25585741133786!3d9.935775574094043!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b086d70943b9511%3A0x9eac52a2dac0327a!2sMoidus%20Tower%2C%20P%20T%20Jacob%20Rd%2C%20Thoppumpady%2C%20Kochi%2C%20Kerala%20682005!5e0!3m2!1sen!2sin!4v1772092428792!5m2!1sen!2sin"
-                    className="w-full h-[418px]"
+                    className="w-full h-[418px] mt-[36px]"
                     style={{ border: 0 }}
                     allowFullScreen=""
                     loading="lazy"

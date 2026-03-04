@@ -48,17 +48,7 @@ const Navbar = ({ page, setPage, openModal }) => {
             {/* Right: CTA buttons group (gap 12px) */}
             <div className="hidden min-[1100px]:flex items-center gap-[12px]">
                 {/* WhatsApp Now Button */}
-                <div
-                    className="flex justify-end items-center gap-[8px] pl-[24px] pr-[4px] py-[4px] bg-[#0D2446] rounded-full border-none cursor-pointer hover:scale-105 transition-transform"
-                    style={{ boxShadow: '0px 2px 6px 2px rgba(0, 0, 0, 0.15), 0px 1px 2px rgba(0, 0, 0, 0.30)' }}
-                >
-                    <div className="text-center text-white text-[16px] font-inter font-semibold leading-[24px] whitespace-nowrap">
-                        WhatsApp Now
-                    </div>
-                    <div className="flex justify-start items-center gap-[10px]">
-                        <img className="w-[48px] h-[48px]" src="/whatsapp_icon.png" alt="WhatsApp" />
-                    </div>
-                </div>
+                <WhatsAppButton />
 
                 {/* Free Eligibility Check Button */}
                 <button

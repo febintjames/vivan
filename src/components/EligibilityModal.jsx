@@ -44,9 +44,10 @@ const EligibilityModal = ({ open, onClose }) => {
                     </div>
 
                     {/* Employment Type */}
-                    <div className="flex items-center gap-6 py-2">
+                    <div className="flex items-center flex-wrap gap-5 py-2">
                         {[
                             ["salaried", "Salaried"],
+                            ["selfEmployed", "Self-employed"],
                             ["business", "Business owner"],
                         ].map(([v, l]) => (
                             <label
