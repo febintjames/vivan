@@ -75,25 +75,39 @@ const AnimatedMissionSection = () => {
     return (
         <div
             ref={targetRef}
-            className={`w-full relative flex flex-col items-center justify-center transition-all duration-[1200ms] ease-out z-[5] mt-[20px] md:-mt-[clamp(40px,8vw,130px)] pb-[clamp(12px,2vw,20px)] ${isIntersecting ? "opacity-100 translate-y-0" : "opacity-0 translate-y-32"
+            className={`w-full relative flex flex-col items-center justify-center transition-all duration-[1200ms] ease-out z-[5] -mt-[8px] md:mt-[clamp(0px,4vw,70px)] pb-[clamp(12px,2vw,20px)] ${isIntersecting ? "opacity-100 translate-y-0" : "opacity-0 translate-y-32"
                 }`}
         >
-            <div className="relative w-full max-w-[1920px] mx-auto pointer-events-none">
+            <div className="relative w-full max-w-[1820px] mx-auto pointer-events-none">
                 <div
                     className="relative w-full aspect-[1920/1920]"
                     style={{
                         clipPath: missionCombinedClipPath,
-                        backgroundImage: "url('/our_mission_image.png'), linear-gradient(90deg, transparent 0 calc(50% - 375px), #0D2446 calc(50% - 375px) calc(50% + 375px), transparent calc(50% + 375px) 100%), linear-gradient(0deg, #0E2446 0%, rgba(37, 132, 198, 0) 100%)",
-                        backgroundSize: 'clamp(420px,45vw,860px) auto, 100% 100%, 100% 100%',
-                        backgroundPosition: 'center 78%, center center, center center',
-                        backgroundRepeat: 'no-repeat, no-repeat, no-repeat'
+                        backgroundImage: "linear-gradient(90deg, transparent 0 calc(50% - 375px), #0D2446 calc(50% - 375px) calc(50% + 375px), transparent calc(50% + 375px) 100%), linear-gradient(0deg, #0E2446 0%, rgba(37, 132, 198, 0) 100%)",
+                        backgroundSize: '100% 100%, 100% 100%',
+                        backgroundPosition: 'center center, center center',
+                        backgroundRepeat: 'no-repeat, no-repeat'
                     }}
                 />
 
-                <div className="absolute left-1/2 top-[46%] md:top-[38%] -translate-x-1/2 -translate-y-1/2 z-[10] w-[min(621px,90vw)] px-4">
-                    <div className="w-full flex flex-col items-center gap-[24px]">
-                        <div className="text-center text-[#F8FAFC] text-[clamp(26px,3vw,40px)] font-inter font-semibold leading-[1.35] break-words">Our Mission</div>
-                        <div className="self-stretch text-center text-[#F8FAFC] text-[clamp(14px,1.2vw,18px)] font-inter font-normal leading-[1.8] tracking-[1px] break-words">
+                <img
+                    src="/ourmission.png"
+                    alt="Our Mission"
+                    className={`absolute left-1/2 top-[72%] md:top-[70%] -translate-x-1/2 -translate-y-1/2 z-[4] w-[clamp(230px,34vw,750px)] h-auto transition-all duration-[900ms] ease-out ${isIntersecting ? "opacity-100 scale-100" : "opacity-0 scale-75 translate-y-8"}`}
+                />
+
+                <div
+                    className="absolute inset-0 z-[6]"
+                    style={{
+                        clipPath: 'polygon(0% 100%, 100% 50%, 100% 100%)',
+                        backgroundColor: '#FFFFFF'
+                    }}
+                />
+
+                <div className="absolute left-1/2 top-[52%] md:top-[44%] -translate-x-1/2 -translate-y-1/2 z-[10] w-[calc(100%-32px)] md:w-[min(621px,90vw)] px-2 md:px-4">
+                    <div className="w-full flex flex-col items-center gap-3 md:gap-6">
+                        <div className="text-center text-[#F8FAFC] text-[20px] md:text-[clamp(26px,3vw,40px)] font-inter font-semibold leading-7 md:leading-[1.35] break-words">Our Mission</div>
+                        <div className="self-stretch text-center text-[#F8FAFC] text-[16px] md:text-[clamp(14px,1.2vw,18px)] font-inter font-normal leading-[26px] md:leading-[1.8] tracking-[0.2px] md:tracking-[1px] break-words">
                             To simplify financial products for everyday people and provide trustworthy guidance with transparency, speed, and professional support.
                         </div>
                     </div>
@@ -182,16 +196,16 @@ const HomePage = ({ setPage, openModal }) => {
                 <canvas ref={canvasRef} className="absolute top-0 left-0 w-full h-full z-[2] pointer-events-none md:pointer-events-auto" />
 
                 {/* Who We Are Background */}
-                <div className="absolute top-[420px] sm:top-[480px] md:top-[clamp(690px,40vw,770px)] left-1/2 -translate-x-1/2 w-[clamp(250px,78vw,750px)] aspect-[750/1397] z-[1] pointer-events-none">
-                    <img src="/whoWeAreBg.png" alt="Who We Are Background" className="w-full h-full block object-cover" />
+                <div className="hidden md:block absolute top-[380px] sm:top-[240px] md:top-[clamp(630px,20vw,580px)] left-1/2 -translate-x-1/2 w-[clamp(250px,78vw,750px)] aspect-[750/1397] z-[1] pointer-events-none">
+                    <img src="/whowearebg3.png" alt="Who We Are Background" className="w-full h-full block object-cover" />
                 </div>
 
                 {/* Banner */}
-                <div className="relative z-[5] mb-[80px]" style={{ marginInline: 'clamp(1.25rem, 24.837vw - 4.804rem, 25rem)' }}>
-                    <h1 className="text-[#0f172b] text-center text-[clamp(32px,4.2vw,64px)] font-inter font-bold leading-[1.35]">
+                <div className="relative z-[4] mb-[80px]" style={{ marginInline: 'clamp(1.25rem, 24.837vw - 4.804rem, 25rem)' }}>
+                    <h1 className="w-full text-[#0f172a] text-center text-[clamp(32px,4.2vw,64px)] font-inter font-semibold leading-[clamp(48px,7vw,102px)] whitespace-nowrap">
                         Financial Solutions. Simplified.
                     </h1>
-                    <h2 className="text-[#314158] text-center text-[clamp(22px,2.8vw,40px)] mt-4 font-inter font-semibold leading-[1.4]">
+                    <h2 className="text-[#334155] text-center text-[clamp(22px,2.8vw,40px)] mt-4 font-inter font-semibold leading-[1.4]">
                         We help individuals and businesses with Loans, Mutual Funds &
                         Insurance with expert guidance, strong back-office support, and
                         faster coordination with banks and NBFCs.
@@ -215,7 +229,7 @@ const HomePage = ({ setPage, openModal }) => {
                         aria-hidden="true"
                         className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-[56%] md:-translate-y-[60%] w-[640px] sm:w-[820px] md:w-[clamp(900px,120vw,1920px)] max-w-none h-auto z-[0] pointer-events-none select-none"
                     />
-                    <img src="/LogoSection.png" alt="VA logo section" className="relative z-[5] block w-[clamp(250px,78vw,750px)] h-auto mx-auto" />
+                    <img src="/Logo.png" alt="VA logo section" className="relative z-[5] block w-[clamp(250px,78vw,750px)] h-auto mx-auto" />
                     {/* Coin Flip */}
                     <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[84px] h-[84px] sm:w-[clamp(130px,16vw,250px)] sm:h-[clamp(130px,16vw,250px)] z-10 block">
                         <div className="relative w-full h-full" style={{ transformStyle: 'preserve-3d', animation: 'coinFlip 3s ease-in-out infinite' }}>
@@ -235,26 +249,26 @@ const HomePage = ({ setPage, openModal }) => {
             </div>
 
             {/* Who We Are */}
-            <div className="flex items-start justify-center mt-[8px] md:mt-[clamp(-130px,-8vw,-90px)] pt-[clamp(40px,8vw,120px)] md:pt-[clamp(120px,14vw,200px)] pb-[clamp(120px,16vw,280px)] relative z-[4]">
-                <div className="mx-auto w-[clamp(250px,78vw,621px)] md:w-[clamp(320px,78vw,621px)] max-w-[621px] flex flex-col items-center gap-[24px] relative z-[2] px-0">
-                    <div className="self-stretch text-center text-[#0F172B] text-[32px] md:text-[clamp(26px,3vw,40px)] font-inter font-semibold leading-[1.35] break-words">
+            <div className="flex items-start justify-center mt-[8px] md:mt-[clamp(-130px,-8vw,-90px)] pt-[24px] md:pt-[clamp(120px,14vw,200px)] pb-[24px] md:pb-[clamp(120px,16vw,280px)] relative z-[4]">
+                <div className="mx-auto w-[min(350px,calc(100vw-40px))] md:w-[clamp(320px,78vw,621px)] max-w-[621px] flex flex-col items-center gap-[16px] md:gap-[24px] relative z-[2] px-[16px] py-[16px] md:px-0 md:py-0 bg-gradient-to-b from-[#F1F5F9] to-[#E2E8F0] md:bg-none">
+                    <div className="self-stretch text-center text-[#0F172B] text-[20px] md:text-[clamp(26px,3vw,40px)] font-inter font-semibold leading-[28px] md:leading-[1.35] break-words">
                         Who We Are
                     </div>
-                    <div className="self-stretch text-center text-[#314158] text-[16px] md:text-[clamp(14px,1.2vw,18px)] font-inter font-normal leading-[1.8] tracking-[0.6px] md:tracking-[1px] break-words">
-                        Vivian Business Solutions is a financial solutions company based in Kochi. We assist customers with loan processing, mutual fund investments, and insurance services through trusted partners and professional support.<br /><br />We act as a structured coordination and advisory support system, ensuring customers receive the right financial product based on eligibility and requirements.
+                    <div className="self-stretch text-center text-[#314158] text-[16px] md:text-[clamp(14px,1.2vw,18px)] font-inter font-normal leading-[26px] md:leading-[1.8] tracking-[0px] md:tracking-[1px] break-words">
+                        Vivian Business Solutions is a financial solutions company based in Kochi. We assist customers with loan processing, mutual fund investments, and insurance services through trusted partners and professional support.<br />We act as a structured coordination and advisory support system, ensuring customers receive the right financial product based on eligibility and requirements.
                     </div>
                 </div>
             </div>
 
             {/* Floating Money */}
-            <div className="relative w-full h-0 z-0">
+            <div className="relative w-full h-0 hidden md:block">
                 <div className="absolute left-[-8%] sm:left-[5%] xl:left-[200px] top-[-110px] md:top-[-170px] w-[493px] h-[315px] z-0 pointer-events-none float-slow scale-[0.28] sm:scale-50 md:scale-75 xl:scale-100 origin-top-left">
                     <div className="absolute w-[493px] h-[315px] left-0 top-[-250px] blur-[7px] overflow-hidden">
                         <img src="/leftmoney_new.png" className="absolute h-[298.5%] w-[127.23%] left-[-18.48%] top-0 max-w-none block" />
                     </div>
                 </div>
-                <div className="absolute right-[-18%] sm:right-[5%] xl:right-0 top-[-150px] md:top-[-250px] w-[736px] h-[867px] z-0 pointer-events-none float-delayed scale-[0.24] sm:scale-50 md:scale-75 xl:scale-100 origin-top-right">
-                    <div className="absolute w-[736px] h-[492px] left-0 top-[-85px] blur-[7.5px] overflow-hidden">
+                <div className="absolute right-[-18%] sm:right-[5%] xl:right-0 top-[20px] md:top-[10px] w-[736px] h-[867px] z-[7] pointer-events-none float-delayed scale-[0.24] sm:scale-50 md:scale-75 xl:scale-100 origin-top-right">
+                    <div className="absolute w-[736px] h-[492px] left-0 top-[-85px] overflow-hidden">
                         <img src="/rightmoney_main.png" className="absolute h-[224.48%] w-[100.04%] left-[-0.02%] top-[-72.3%] max-w-none block" />
                     </div>
                     <div className="absolute w-[207px] h-[272px] left-[371px] top-[-460px] overflow-hidden">
@@ -264,23 +278,37 @@ const HomePage = ({ setPage, openModal }) => {
             </div>
 
             {/* Our Mission */}
-            <div className="relative w-full overflow-visible flex flex-col items-center justify-center mt-[24px] md:mt-[-30px] z-[2]">
+            <div className="relative w-full overflow-visible flex flex-col items-center justify-center mt-[12px] md:-mt-[60px] z-[2]">
+
+                <div className="w-[min(350px,calc(100vw-40px))] bg-[#0D2446] px-[16px] pt-[16px] pb-[12px] flex flex-col items-center gap-[16px] md:hidden">
+                    <div className="self-stretch text-center text-[#F8FAFC] text-[20px] font-inter font-semibold leading-[28px]">Our Mission</div>
+                    <div className="self-stretch text-center text-[#F8FAFC] text-[16px] font-inter font-normal leading-[26px]">
+                        To simplify financial products for everyday people and provide trustworthy guidance with transparency, speed, and professional support.
+                    </div>
+                    <img src="/ourmission.png" alt="Our Mission" className="w-full h-auto max-h-[295px] object-contain" />
+                </div>
 
                 {/* Dark Navy shape & Text (Animated) */}
-                <AnimatedMissionSection />
+                <div className="hidden md:block w-full">
+                    <AnimatedMissionSection />
+                </div>
             </div>
 
             {/* Why Choose Us */}
-            <div className="mb-20 -mt-[clamp(150px,1.2vw,16px)] pt-[clamp(32px,6vw,80px)] w-[min(750px,92vw)] mx-auto">
-                <h2 className="text-[#0f172b] text-center text-[clamp(26px,3vw,40px)] font-inter font-semibold leading-[1.35] mb-[40px]">Why Choose Us</h2>
-                <div className="grid grid-cols-1 xl:grid-cols-2 gap-[20px]">
+            <div className="relative mb-0 mt-[40px] md:mt-[clamp(-110px,-9vw,-210px)] pt-[24px] md:pt-[clamp(32px,6vw,80px)] w-[min(350px,calc(100vw-40px))] md:w-[min(750px,92vw)] mx-auto overflow-visible">
+                <div className="absolute right-[-22%] md:right-[-28%] top-[clamp(90px,16vw,210px)] w-[clamp(180px,28vw,360px)] pointer-events-none z-0 why-bg-anim">
+                    <img src="/whychooseusbg.png" alt="" aria-hidden="true" className="w-full h-auto block opacity-90" />
+                </div>
+
+                <h2 className="relative z-[2] text-[#0f172b] text-center text-[clamp(26px,3vw,40px)] font-inter font-semibold leading-[1.35] mb-[40px]">Why Choose Us</h2>
+                <div className="relative z-[2] grid grid-cols-1 xl:grid-cols-2 gap-[20px]">
                     {[
                         { title: "Strong Operations Support", text: "We scrutinize documents, check eligibility thoroughly, and ensure accurate submissions to reduce rejection chances and delays." },
                         { title: "Faster Follow-up", text: "We coordinate directly with banks and NBFCs to speed up approvals and disbursement processes." },
                         { title: "Free Loan Guidance", text: "Loan guidance and processing support are provided free of cost to customers. (Bank/NBFC processing fees apply as per their norms.)" },
                         { title: "Transparent Process", text: "No false promises. No hidden charges. Clear communication at every stage." },
                     ].map(item => (
-                        <div key={item.title} className="bg-[#0d2446] flex flex-col items-start gap-[12px] p-[clamp(20px,3vw,40px)] min-h-[clamp(220px,26vw,320px)] border-b-[8px] border-[#f8ba17] transition-transform duration-300 hover:scale-[1.02]">
+                        <div key={item.title} className="bg-[#0d2446] flex flex-col items-start gap-[12px] p-[clamp(20px,3vw,40px)] min-h-[clamp(220px,26vw,320px)] transition-transform duration-300 ease-in-out hover:scale-[1.05]" style={{ boxShadow: '0px 8px 0px 0px #f8ba17' }}>
                             <h3 className="text-[#F8FAFC] text-[clamp(22px,2.2vw,32px)] font-inter font-semibold leading-[1.35] m-0 text-left">{item.title}</h3>
                             <p className="text-[#E2E8F0] text-[clamp(14px,1.2vw,18px)] font-inter font-normal leading-[1.8] m-0 text-left">{item.text}</p>
                         </div>
@@ -289,7 +317,7 @@ const HomePage = ({ setPage, openModal }) => {
             </div>
 
             {/* Services */}
-            <div className="mb-20" style={{ marginInline: 'clamp(1rem, 6vw, 8rem)' }}>
+            <div className="mb-20 mt-[clamp(24px,4vw,56px)]" style={{ marginInline: 'clamp(1rem, 6vw, 8rem)' }}>
                 <h2 className="text-[#0f172b] text-center text-[clamp(26px,3vw,40px)] font-inter font-semibold leading-[1.35] mb-[40px]">Services</h2>
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-[20px]">
                     {[
@@ -344,8 +372,8 @@ const HomePage = ({ setPage, openModal }) => {
                     }}
                 >
                     {bankLogos.map(([name, logo]) => (
-                        <div key={name} className="w-[clamp(120px,16vw,200px)] h-[clamp(120px,16vw,200px)] bg-[#e2e8f0] rounded-full flex flex-col items-center justify-center">
-                            <img src={logo} alt={name} className="max-w-[clamp(80px,10vw,140px)] object-contain" />
+                        <div key={name} className="group w-[clamp(120px,16vw,200px)] h-[clamp(120px,16vw,200px)] bg-[#e2e8f0] rounded-full flex flex-col items-center justify-center transition-transform duration-300 ease-out hover:scale-110">
+                            <img src={logo} alt={name} className="max-w-[clamp(80px,10vw,140px)] object-contain transition-transform duration-300 ease-out group-hover:scale-95" />
                         </div>
                     ))}
                 </div>

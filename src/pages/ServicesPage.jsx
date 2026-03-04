@@ -63,7 +63,7 @@ const ServicesPage = ({ setPage }) => (
                         </div>
                         <div className="bg-[#fefce8] rounded-lg h-fit w-fit px-5">
                             <h4>Key Benefits</h4>
-                            <ul className="flex flex-col gap-3 pl-5">
+                            <ul className="list-disc list-outside space-y-3 pl-6 text-[#314158] text-[18px] font-inter font-normal leading-[32px]">
                                 <li>Free Eligibility Check</li>
                                 <li>Proper bank/NBFC selection based on profile</li>
                                 <li>Document scrutiny and verification</li>

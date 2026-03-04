@@ -103,12 +103,40 @@ body {
   }
 }
 
+@keyframes floatUpDownSmall {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-70px);
+  }
+}
+
 .float-slow {
   animation: floatUpDown 4s ease-in-out infinite;
 }
 
 .float-delayed {
-  animation: floatUpDown 5s ease-in-out infinite 0.5s;
+  animation: floatUpDownSmall 5s ease-in-out infinite 0.5s;
+}
+
+@keyframes whyBgDrift {
+
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) rotate(0deg) scale(1);
+  }
+
+  50% {
+    transform: translate3d(12px, -18px, 0) rotate(-1.5deg) scale(1.03);
+  }
+}
+
+.why-bg-anim {
+  animation: whyBgDrift 7s ease-in-out infinite;
 }
 
 /* ── FAQ accordion transition ── */
