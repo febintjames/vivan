@@ -27,7 +27,7 @@ const ServicesPage = ({ setPage }) => (
             style={{ marginInline: "clamp(1.25rem, 11.765vw - 1.618rem, 12.5rem)" }}
         >
             {/* ── Loans ── */}
-            <div className="grid grid-cols-1 min-[1100px]:grid-cols-[1fr_3fr] gap-[40px] min-h-[565px] px-[40px] items-center overflow-hidden bg-[#f1f5f9] border-b-[20px] border-[#f0b100]">
+            <div className="grid grid-cols-1 min-[1100px]:grid-cols-[1fr_3fr] gap-[40px] min-h-[565px] px-[20px] min-[1100px]:px-[40px] items-center overflow-hidden bg-[#f1f5f9] border-b-[20px] border-[#f0b100]">
                 <div>
                     <img
                         src="/BankImg.png"
@@ -61,10 +61,10 @@ const ServicesPage = ({ setPage }) => (
                                 businesses.
                             </p>
                         </div>
-                        <div className="bg-[#fefce8] rounded-lg h-fit w-fit px-5">
+                        <div className="bg-[#fefce8] rounded-lg h-fit w-full max-w-[420px] min-[1100px]:w-fit min-[1100px]:max-w-none px-5 md:px-6 py-4">
                             <h4>Key Benefits</h4>
-                            <ul className="list-disc list-outside space-y-3 pl-6 text-[#314158] text-[18px] font-inter font-normal leading-[32px]">
-                                <li>Free Eligibility Check</li>
+                            <ul className="list-disc list-outside space-y-3 pl-6 text-[#314158] text-[15px] min-[1100px]:text-[18px] font-inter font-normal leading-[28px] min-[1100px]:leading-[32px]">
+                                <li>Free eligibility check</li>
                                 <li>Proper bank/NBFC selection based on profile</li>
                                 <li>Document scrutiny and verification</li>
                                 <li>Faster processing coordination</li>
@@ -77,7 +77,7 @@ const ServicesPage = ({ setPage }) => (
             </div>
 
             {/* ── Mutual Funds ── */}
-            <div className="grid grid-cols-1 min-[1100px]:grid-cols-[1fr_3fr] gap-[40px] min-h-[565px] px-[40px] items-center overflow-hidden bg-[#dbeafe] border-b-[20px] border-[#f0b100]">
+            <div className="grid grid-cols-1 min-[1100px]:grid-cols-[1fr_3fr] gap-[40px] min-h-[565px] px-[20px] min-[1100px]:px-[40px] items-center overflow-hidden bg-[#dbeafe] border-b-[20px] border-[#f0b100]">
                 <div>
                     <img
                         src="/MoneyImg.png"
@@ -108,7 +108,7 @@ const ServicesPage = ({ setPage }) => (
             </div>
 
             {/* ── Insurance ── */}
-            <div className="grid grid-cols-1 min-[1100px]:grid-cols-[1fr_3fr] gap-[40px] min-h-[565px] px-[40px] items-center overflow-hidden bg-[#dff2fe]">
+            <div className="grid grid-cols-1 min-[1100px]:grid-cols-[1fr_3fr] gap-[40px] min-h-[565px] px-[20px] min-[1100px]:px-[40px] items-center overflow-hidden bg-[#dff2fe]">
                 <div>
                     <img
                         src="/InsuranceImg.png"
