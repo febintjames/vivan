@@ -202,8 +202,8 @@ const HomePage = ({ setPage, openModal }) => {
 
                 {/* Banner */}
                 <div className="relative z-[4] mb-[80px]" style={{ marginInline: 'clamp(1.25rem, 24.837vw - 4.804rem, 25rem)' }}>
-                    <h1 className="w-full text-[#0f172a] text-center text-[clamp(32px,4.2vw,64px)] font-inter font-semibold leading-[clamp(48px,7vw,102px)] whitespace-nowrap">
-                        Financial Solutions. Simplified.
+                    <h1 className="w-full text-[#0f172a] text-center text-[clamp(32px,4.2vw,64px)] font-inter font-semibold leading-[clamp(48px,7vw,102px)] md:whitespace-nowrap">
+                        Financial Solutions.<br className="md:hidden" /> Simplified.
                     </h1>
                     <h2 className="text-[#334155] text-center text-[clamp(22px,2.8vw,40px)] mt-4 font-inter font-semibold leading-[1.4]">
                         We help individuals and businesses with Loans, Mutual Funds &
@@ -359,21 +359,21 @@ const HomePage = ({ setPage, openModal }) => {
 
             {/* Banks & NBFC Partners */}
             <div className="py-[40px] xl:py-[80px] flex flex-col items-center px-4 md:px-8">
-                <h2 className="text-[#0f172b] text-[clamp(26px,3vw,40px)] font-inter font-semibold leading-[1.35] text-center">Banks & NBFC Partners</h2>
-                <p className="text-[#314158] text-[clamp(14px,1.2vw,18px)] font-inter font-normal leading-[1.8] text-center">
+                <h2 className="text-[#0f172b] text-[20px] md:text-[clamp(26px,3vw,40px)] font-inter font-semibold leading-[28px] md:leading-[1.35] text-center">Banks & NBFC Partners</h2>
+                <p className="text-[#314158] text-[14px] md:text-[clamp(14px,1.2vw,18px)] font-inter font-normal leading-[22px] md:leading-[1.8] text-center">
                     Loans facilitated through leading Banks & NBFCs including:
                 </p>
                 <div
                     ref={affiliatesRef}
-                    className="grid grid-cols-2 md:grid-cols-4 justify-center transition-all duration-[1500ms] ease-in-out mt-8"
+                    className="grid grid-cols-4 justify-center transition-all duration-[1500ms] ease-in-out mt-6 md:mt-8"
                     style={{
-                        gap: affiliatesVisible ? '20px' : '36px',
+                        gap: affiliatesVisible ? 'clamp(8px, 2vw, 20px)' : 'clamp(12px, 3vw, 36px)',
                         marginInline: affiliatesVisible ? 'clamp(8px, 4vw, 80px)' : 'clamp(4px, 2vw, 40px)',
                     }}
                 >
                     {bankLogos.map(([name, logo]) => (
-                        <div key={name} className="group w-[clamp(120px,16vw,200px)] h-[clamp(120px,16vw,200px)] bg-[#e2e8f0] rounded-full flex flex-col items-center justify-center transition-transform duration-300 ease-out hover:scale-110">
-                            <img src={logo} alt={name} className="max-w-[clamp(80px,10vw,140px)] object-contain transition-transform duration-300 ease-out group-hover:scale-95" />
+                        <div key={name} className="group w-[clamp(68px,16vw,200px)] h-[clamp(68px,16vw,200px)] bg-[#e2e8f0] rounded-full flex flex-col items-center justify-center transition-transform duration-300 ease-out hover:scale-110">
+                            <img src={logo} alt={name} className="max-w-[clamp(44px,10vw,140px)] object-contain transition-transform duration-300 ease-out group-hover:scale-95" />
                         </div>
                     ))}
                 </div>

@@ -12,11 +12,11 @@ const ServicesPage = ({ setPage }) => (
             <h1 className="text-[#f8fafc] text-center text-[64px] font-inter font-bold leading-[102px]">Our Services</h1>
             {/* Gold gradient line */}
             <div
-                className="absolute bottom-0 right-0 h-[80px]"
+                className="absolute bottom-0 right-0 h-[48px] md:h-[80px]"
                 style={{
-                    width: '693px',
+                    width: 'min(693px, 100%)',
                     background: 'linear-gradient(90deg, #F8BA17 0%, rgba(248, 186, 23, 0) 100%)',
-                    clipPath: 'polygon(80px 0, 100% 0, 100% 100%, 0 100%)',
+                    clipPath: 'polygon(clamp(44px, 18vw, 80px) 0, 100% 0, 100% 100%, 0 100%)',
                 }}
             />
         </div>

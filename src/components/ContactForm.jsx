@@ -93,17 +93,17 @@ const ContactForm = () => {
                     </div>
 
                     {/* Employment / Income Details */}
-                    <div className="flex flex-col gap-[40px]">
+                    <div className="w-full min-[1100px]:w-auto flex flex-col gap-[24px] min-[1100px]:gap-[40px]">
                         <div className="text-black text-[16px] font-semibold leading-[24px]">Employment / Income Details</div>
-                        <div className="flex flex-col gap-[32px]">
-                            {/* Radio buttons in a single row */}
-                            <div className="flex items-center gap-6 h-[70px]">
+                        <div className="flex flex-col gap-[24px] min-[1100px]:gap-[32px]">
+                            {/* Radio buttons */}
+                            <div className="flex flex-col min-[1100px]:flex-row items-start min-[1100px]:items-center gap-3 min-[1100px]:gap-6 min-[1100px]:h-[70px]">
                                 {[
                                     ["salaried", "Salaried"],
                                     ["selfEmployed", "Self-Employed"],
                                     ["businessOwner", "Business owner"],
                                 ].map(([val, label]) => (
-                                    <label key={val} className="min-w-[120px] inline-flex items-center gap-3 cursor-pointer">
+                                    <label key={val} className="min-w-[120px] inline-flex items-center gap-2 cursor-pointer">
                                         <span className={`w-4 h-4 rounded-full border border-black flex items-center justify-center ${formData.employmentType === val ? 'bg-white' : 'bg-white'}`}>
                                             {formData.employmentType === val && (
                                                 <span className="w-[10px] h-[10px] bg-black rounded-full" />
@@ -117,7 +117,7 @@ const ContactForm = () => {
                                             onChange={handleChange("employmentType")}
                                             className="hidden"
                                         />
-                                        <span className="text-black text-[16px] font-normal leading-[22.4px]">{label}</span>
+                                        <span className="text-black text-[13px] min-[1100px]:text-[16px] font-normal leading-[20px] min-[1100px]:leading-[22.4px]">{label}</span>
                                     </label>
                                 ))}
                             </div>
@@ -139,7 +139,7 @@ const ContactForm = () => {
                 <div className="flex justify-center">
                     <button
                         type="submit"
-                        className="px-6 py-4 bg-[#0d2446] text-white text-[16px] font-semibold leading-[24px] rounded-full border-none cursor-pointer hover:opacity-90 transition-opacity"
+                        className="w-full min-[1100px]:w-auto px-6 py-4 bg-[#0d2446] text-white text-[14px] min-[1100px]:text-[16px] font-semibold leading-[24px] rounded-full border-none cursor-pointer hover:opacity-90 transition-opacity"
                     >
                         Submit
                     </button>
