@@ -1,3 +1,4 @@
+import { useState } from "react";
 import ContactForm from "../components/ContactForm";
 import FAQItem from "../components/FAQItem";
 import Footer from "../components/Footer";
@@ -73,6 +74,8 @@ const ContactPage = ({ setPage }) => {
         },
     ];
 
+    const [openFaqIndex, setOpenFaqIndex] = useState(faqs.findIndex((faq) => faq.open));
+
     return (
         <div className="page-enter">
             {/* ═══ HERO ═══ */}
@@ -144,8 +147,14 @@ const ContactPage = ({ setPage }) => {
                         Frequently Asked Questions
                     </h2>
                     <div>
-                        {faqs.map(({ q, a, open }) => (
-                            <FAQItem key={q} q={q} a={a} defaultOpen={open} />
+                        {faqs.map(({ q, a }, index) => (
+                            <FAQItem
+                                key={q}
+                                q={q}
+                                a={a}
+                                open={openFaqIndex === index}
+                                onToggle={() => setOpenFaqIndex((current) => (current === index ? -1 : index))}
+                            />
                         ))}
                     </div>
                 </div>

@@ -75,15 +75,15 @@ const AnimatedMissionSection = () => {
     return (
         <div
             ref={targetRef}
-            className={`w-full relative flex flex-col items-center justify-center transition-all duration-[1200ms] ease-out z-[5] -mt-[8px] md:mt-[clamp(0px,4vw,70px)] pb-[clamp(12px,2vw,20px)] ${isIntersecting ? "opacity-100 translate-y-0" : "opacity-0 translate-y-32"
+            className={`w-full relative flex flex-col items-center justify-center transition-all duration-[1200ms] ease-out z-[5] -mt-[8px] md:mt-[8px] lg:mt-[24px] xl:mt-[40px] pb-[12px] md:pb-[20px] ${isIntersecting ? "opacity-100 translate-y-0" : "opacity-0 translate-y-32"
                 }`}
         >
-            <div className="relative w-full max-w-[1820px] mx-auto pointer-events-none">
+            <div className="relative w-full mx-auto pointer-events-none">
                 <div
                     className="relative w-full aspect-[1920/1920]"
                     style={{
                         clipPath: missionCombinedClipPath,
-                        backgroundImage: "linear-gradient(90deg, transparent 0 calc(50% - 375px), #0D2446 calc(50% - 375px) calc(50% + 375px), transparent calc(50% + 375px) 100%), linear-gradient(0deg, #0E2446 0%, rgba(37, 132, 198, 0) 100%)",
+                        backgroundImage: "linear-gradient(90deg, transparent 0 calc(50% - clamp(180px, 39vw, 375px)), #0D2446 calc(50% - clamp(180px, 39vw, 375px)) calc(50% + clamp(180px, 39vw, 375px)), transparent calc(50% + clamp(180px, 39vw, 375px)) 100%), linear-gradient(0deg, #0E2446 0%, rgba(37, 132, 198, 0) 100%)",
                         backgroundSize: '100% 100%, 100% 100%',
                         backgroundPosition: 'center center, center center',
                         backgroundRepeat: 'no-repeat, no-repeat'
@@ -93,7 +93,7 @@ const AnimatedMissionSection = () => {
                 <img
                     src="/ourmission.png"
                     alt="Our Mission"
-                    className={`absolute left-1/2 top-[72%] md:top-[70%] -translate-x-1/2 -translate-y-1/2 z-[4] w-[clamp(230px,34vw,750px)] h-auto transition-all duration-[900ms] ease-out ${isIntersecting ? "opacity-100 scale-100" : "opacity-0 scale-75 translate-y-8"}`}
+                    className={`absolute left-1/2 top-[72%] md:top-[74%] lg:top-[70%] xl:top-[68%] -translate-x-1/2 -translate-y-1/2 z-[4] w-[clamp(230px,42%,620px)] h-auto transition-all duration-[900ms] ease-out ${isIntersecting ? "opacity-100 scale-100" : "opacity-0 scale-75 translate-y-8"}`}
                 />
 
                 <div
@@ -104,7 +104,7 @@ const AnimatedMissionSection = () => {
                     }}
                 />
 
-                <div className="absolute left-1/2 top-[52%] md:top-[44%] -translate-x-1/2 -translate-y-1/2 z-[10] w-[calc(100%-32px)] md:w-[min(621px,90vw)] px-2 md:px-4">
+                <div className="absolute left-1/2 top-[52%] md:top-[48%] lg:top-[44%] -translate-x-1/2 -translate-y-1/2 z-[10] w-[calc(100%_-_32px)] md:w-[min(621px,90vw)] px-2 md:px-4">
                     <div className="w-full flex flex-col items-center gap-3 md:gap-6">
                         <div className="text-center text-[#F8FAFC] text-[20px] md:text-[clamp(26px,3vw,40px)] font-inter font-semibold leading-7 md:leading-[1.35] break-words">Our Mission</div>
                         <div className="self-stretch text-center text-[#F8FAFC] text-[16px] md:text-[clamp(14px,1.2vw,18px)] font-inter font-normal leading-[26px] md:leading-[1.8] tracking-[0.2px] md:tracking-[1px] break-words">
@@ -191,12 +191,12 @@ const HomePage = ({ setPage, openModal }) => {
     ];
 
     return (
-        <div className="w-full max-w-[1940px] mx-auto mt-[clamp(72px,8vw,105px)] flex flex-col relative overflow-hidden bg-white page-enter">
+        <div className="w-full mx-auto mt-[clamp(72px,8vw,105px)] flex flex-col relative overflow-hidden bg-white page-enter">
             <div className="relative w-full overflow-visible min-h-[620px] md:min-h-[clamp(760px,70vw,900px)] z-[2]">
                 <canvas ref={canvasRef} className="absolute top-0 left-0 w-full h-full z-[2] pointer-events-none md:pointer-events-auto" />
 
                 {/* Who We Are Background */}
-                <div className="hidden md:block absolute top-[380px] sm:top-[240px] md:top-[clamp(630px,20vw,580px)] left-1/2 -translate-x-1/2 w-[clamp(250px,78vw,750px)] aspect-[750/1397] z-[1] pointer-events-none">
+                <div className="hidden md:block absolute top-[380px] sm:top-[240px] md:top-[535px] lg:top-[585px] xl:top-[635px] 2xl:top-[655px] left-1/2 -translate-x-1/2 w-[clamp(250px,78vw,750px)] aspect-[750/1397] z-[1] pointer-events-none">
                     <img src="/whowearebg3.png" alt="Who We Are Background" className="w-full h-full block object-cover" />
                 </div>
 
@@ -249,7 +249,7 @@ const HomePage = ({ setPage, openModal }) => {
             </div>
 
             {/* Who We Are */}
-            <div className="flex items-start justify-center mt-[8px] md:mt-[clamp(-130px,-8vw,-90px)] pt-[24px] md:pt-[clamp(120px,14vw,200px)] pb-[24px] md:pb-[clamp(120px,16vw,280px)] relative z-[4]">
+            <div className="flex items-start justify-center mt-[8px] md:mt-[-73px] lg:mt-[-67px] xl:mt-[-53px] pt-[24px] md:pt-[132px] lg:pt-[160px] xl:pt-[180px] 2xl:pt-[220px] pb-[24px] md:pb-[120px] lg:pb-[160px] xl:pb-[170px] 2xl:pb-[220px] relative z-[4]">
                 <div className="mx-auto w-[min(350px,calc(100vw-40px))] md:w-[clamp(320px,78vw,621px)] max-w-[621px] flex flex-col items-center gap-[16px] md:gap-[24px] relative z-[2] px-[16px] py-[16px] md:px-0 md:py-0 bg-gradient-to-b from-[#F1F5F9] to-[#E2E8F0] md:bg-none">
                     <div className="self-stretch text-center text-[#0F172B] text-[20px] md:text-[clamp(26px,3vw,40px)] font-inter font-semibold leading-[28px] md:leading-[1.35] break-words">
                         Who We Are
@@ -267,7 +267,7 @@ const HomePage = ({ setPage, openModal }) => {
                         <img src="/leftmoney_new.png" className="absolute h-[298.5%] w-[127.23%] left-[-18.48%] top-0 max-w-none block" />
                     </div>
                 </div>
-                <div className="absolute right-[-18%] sm:right-[5%] xl:right-0 top-[20px] md:top-[10px] w-[736px] h-[867px] z-[7] pointer-events-none float-delayed scale-[0.24] sm:scale-50 md:scale-75 xl:scale-100 origin-top-right">
+                <div className="absolute right-[-18%] sm:right-[5%] xl:right-0 top-[-60px] md:top-[-80px] w-[736px] h-[867px] z-[7] pointer-events-none float-delayed scale-[0.24] sm:scale-50 md:scale-75 xl:scale-100 origin-top-right">
                     <div className="absolute w-[736px] h-[492px] left-0 top-[-85px] overflow-hidden">
                         <img src="/rightmoney_main.png" className="absolute h-[224.48%] w-[100.04%] left-[-0.02%] top-[-72.3%] max-w-none block" />
                     </div>
@@ -278,7 +278,7 @@ const HomePage = ({ setPage, openModal }) => {
             </div>
 
             {/* Our Mission */}
-            <div className="relative w-full overflow-visible flex flex-col items-center justify-center mt-[12px] md:-mt-[60px] z-[2]">
+            <div className="relative w-full overflow-visible flex flex-col items-center justify-center mt-[12px] md:mt-[-82px] lg:mt-[-110px] xl:mt-[-130px] 2xl:mt-[-106px] z-[2]">
 
                 <div className="w-[min(350px,calc(100vw-40px))] bg-[#0D2446] px-[16px] pt-[16px] pb-[12px] flex flex-col items-center gap-[16px] md:hidden">
                     <div className="self-stretch text-center text-[#F8FAFC] text-[20px] font-inter font-semibold leading-[28px]">Our Mission</div>
@@ -388,10 +388,15 @@ const HomePage = ({ setPage, openModal }) => {
                 <h1 className="text-[#0f172b] text-[clamp(30px,4vw,64px)] font-inter font-bold leading-[1.35] mt-0 mb-0">Need a loan or financial guidance?</h1>
                 <p className="text-[#314158] text-[clamp(14px,1.2vw,18px)] font-inter font-normal leading-[1.8]">Call or WhatsApp us today for a free eligibility check.</p>
                 <div className="flex items-center justify-center gap-5 mt-4">
-                    <button className="flex items-center justify-center pl-[24px] pr-[4px] py-[4px] rounded-full border-none bg-[#0d2446] cursor-pointer hover:scale-105 transition-transform" style={{ boxShadow: '0px 2px 6px 2px rgba(0, 0, 0, 0.15), 0px 1px 2px rgba(0, 0, 0, 0.30)' }}>
+                    <WhatsAppButton />
+                    <a
+                        href="tel:9567582102"
+                        className="flex items-center justify-center pl-[24px] pr-[4px] py-[4px] rounded-full bg-[#0d2446] cursor-pointer hover:scale-105 transition-transform no-underline"
+                        style={{ boxShadow: '0px 2px 6px 2px rgba(0, 0, 0, 0.15), 0px 1px 2px rgba(0, 0, 0, 0.30)' }}
+                    >
                         <div className="text-white text-[16px] font-inter font-semibold leading-[24px] whitespace-nowrap">Call Now</div>
                         <img src="/phoneCallLoop.gif" alt="Phone Call" className="w-[48px] h-[48px] ml-[8px]" />
-                    </button>
+                    </a>
                 </div>
             </div>
 

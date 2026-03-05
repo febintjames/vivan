@@ -1,8 +1,18 @@
 import { useState } from "react";
 
-const FAQItem = ({ q, a, defaultOpen = false }) => {
-    const [open, setOpen] = useState(defaultOpen);
+const FAQItem = ({ q, a, defaultOpen = false, open: controlledOpen, onToggle }) => {
+    const [internalOpen, setInternalOpen] = useState(defaultOpen);
+    const isControlled = typeof controlledOpen === "boolean";
+    const open = isControlled ? controlledOpen : internalOpen;
     const isList = Array.isArray(a);
+
+    const handleToggle = () => {
+        if (isControlled) {
+            onToggle?.();
+            return;
+        }
+        setInternalOpen((value) => !value);
+    };
 
     return (
         <div
@@ -10,7 +20,7 @@ const FAQItem = ({ q, a, defaultOpen = false }) => {
                 }`}
         >
             <button
-                onClick={() => setOpen((o) => !o)}
+                onClick={handleToggle}
                 className="w-full px-6 md:px-10 py-6 md:py-8 bg-transparent border-none cursor-pointer flex items-center gap-2.5 text-left font-inherit"
             >
                 <div className="p-1.5 rounded-full flex items-center shrink-0">
