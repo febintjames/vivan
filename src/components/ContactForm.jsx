@@ -9,6 +9,8 @@ const ContactForm = () => {
         loanAmount: "",
         employmentType: "salaried",
         salaryAmount: "",
+        monthlyIncome: "",
+        yearsInOperation: "",
     });
 
     const handleChange = (field) => (e) =>
@@ -121,16 +123,48 @@ const ContactForm = () => {
                                     </label>
                                 ))}
                             </div>
-                            <div className="flex flex-col gap-2">
-                                <label className="text-black text-[16px] font-normal leading-[22.4px]">Salary Amount</label>
-                                <input
-                                    type="number"
-                                    value={formData.salaryAmount}
-                                    onChange={handleChange("salaryAmount")}
-                                    className="min-w-[120px] px-4 py-3 bg-white rounded-lg outline outline-1 outline-[#e2e8f0] -outline-offset-[0.5px] text-[16px] font-normal leading-[16px] text-black placeholder:text-[#62748e] [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
-                                    placeholder="Enter amount"
-                                />
-                            </div>
+                            {formData.employmentType === "salaried" && (
+                                <div className="flex flex-col gap-2">
+                                    <label className="text-black text-[16px] font-normal leading-[22.4px]">Salary Amount</label>
+                                    <input
+                                        type="number"
+                                        value={formData.salaryAmount}
+                                        onChange={handleChange("salaryAmount")}
+                                        className="min-w-[120px] px-4 py-3 bg-white rounded-lg outline outline-1 outline-[#e2e8f0] -outline-offset-[0.5px] text-[16px] font-normal leading-[16px] text-black placeholder:text-[#62748e] [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+                                        placeholder="Enter amount"
+                                    />
+                                </div>
+                            )}
+
+                            {formData.employmentType === "selfEmployed" && (
+                                <div className="flex flex-col gap-2">
+                                    <label className="text-black text-[16px] font-normal leading-[22.4px]">Monthly Income</label>
+                                    <input
+                                        type="number"
+                                        value={formData.monthlyIncome}
+                                        onChange={handleChange("monthlyIncome")}
+                                        className="min-w-[120px] px-4 py-3 bg-white rounded-lg outline outline-1 outline-[#e2e8f0] -outline-offset-[0.5px] text-[16px] font-normal leading-[16px] text-black placeholder:text-[#62748e] [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+                                        placeholder="Enter amount"
+                                    />
+                                </div>
+                            )}
+
+                            {formData.employmentType === "businessOwner" && (
+                                <div className="flex flex-col gap-2">
+                                    <label className="text-black text-[16px] font-normal leading-[22.4px]">Years in Operation</label>
+                                    <select
+                                        value={formData.yearsInOperation}
+                                        onChange={handleChange("yearsInOperation")}
+                                        className={`min-w-[120px] h-[40px] py-3 pl-4 pr-3 bg-white rounded-lg outline outline-1 outline-[#d9d9d9] -outline-offset-[0.5px] text-[16px] font-normal leading-[16px] ${!formData.yearsInOperation ? "text-[#62748e]" : "text-black"}`}
+                                    >
+                                        <option value="" disabled hidden>Select years</option>
+                                        <option value="less-than-1" className="text-black">Less than 1 year</option>
+                                        <option value="1-2" className="text-black">1–2 years</option>
+                                        <option value="2-5" className="text-black">2–5 years</option>
+                                        <option value="5-plus" className="text-black">5+ years</option>
+                                    </select>
+                                </div>
+                            )}
                         </div>
                     </div>
                 </div>

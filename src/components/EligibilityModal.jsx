@@ -77,6 +77,16 @@ const EligibilityModal = ({ open, onClose }) => {
                                 placeholder="Enter amount"
                             />
                         </div>
+                    ) : emp === "selfEmployed" ? (
+                        <div className="flex flex-col gap-2">
+                            <label className="font-inter text-base text-black">
+                                Monthly Income
+                            </label>
+                            <input
+                                className="w-full px-4 py-3 bg-white rounded-lg border border-slate-200 font-inter text-base text-slate-500 outline-none focus:border-gold transition-colors"
+                                placeholder="Enter amount"
+                            />
+                        </div>
                     ) : (
                         <div className="flex flex-col gap-2">
                             <label className="font-inter text-base text-black">
