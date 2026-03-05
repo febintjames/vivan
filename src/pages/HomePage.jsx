@@ -1,4 +1,4 @@
-import { useEffect, useRef, useCallback } from "react";
+import { useEffect, useRef, useCallback, useState } from "react";
 import WhatsAppButton from "../components/WhatsAppButton";
 import Footer from "../components/Footer";
 import { useIntersectionObserver } from "../hooks/useIntersectionObserver";
@@ -68,15 +68,23 @@ const handleTiltReset = (e) => {
 
 /* ─── Animated Mission Section ─── */
 const AnimatedMissionSection = () => {
-    const { targetRef, isIntersecting } = useIntersectionObserver({ threshold: 0.1, rootMargin: "0px 0px -100px 0px" });
+    const { targetRef, isIntersecting } = useIntersectionObserver({ threshold: 0.65, rootMargin: "0px 0px 85% 0px" });
+    const [animateImage, setAnimateImage] = useState(false);
+
+    useEffect(() => {
+        if (isIntersecting) {
+            const frame = requestAnimationFrame(() => setAnimateImage(true));
+            return () => cancelAnimationFrame(frame);
+        }
+        setAnimateImage(false);
+    }, [isIntersecting]);
 
     const missionCombinedClipPath = 'polygon(0% 50%, 100% 0%, 100% 50%, 0% 100%)';
 
     return (
         <div
             ref={targetRef}
-            className={`w-full relative flex flex-col items-center justify-center transition-all duration-[1200ms] ease-out z-[5] -mt-[8px] md:mt-[8px] lg:mt-[24px] xl:mt-[40px] pb-[12px] md:pb-[20px] ${isIntersecting ? "opacity-100 translate-y-0" : "opacity-0 translate-y-32"
-                }`}
+            className="w-full relative flex flex-col items-center justify-center z-[5] -mt-[8px] md:mt-[8px] lg:mt-[24px] xl:mt-[40px] pb-[12px] md:pb-[20px]"
         >
             <div className="relative w-full mx-auto pointer-events-none">
                 <div
@@ -93,7 +101,8 @@ const AnimatedMissionSection = () => {
                 <img
                     src="/ourmission.png"
                     alt="Our Mission"
-                    className={`absolute left-1/2 top-[72%] md:top-[74%] lg:top-[70%] xl:top-[68%] -translate-x-1/2 -translate-y-1/2 z-[4] w-[clamp(230px,42%,620px)] h-auto transition-all duration-[900ms] ease-out ${isIntersecting ? "opacity-100 scale-100" : "opacity-0 scale-75 translate-y-8"}`}
+                    className={`absolute left-1/2 top-[72%] md:top-[74%] lg:top-[70%] xl:top-[68%] z-[4] w-[clamp(230px,42%,620px)] h-auto transition-[transform,opacity] duration-[1900ms] ease-out will-change-transform ${animateImage ? "opacity-100" : "opacity-0"}`}
+                    style={{ transform: `translate(-50%, ${animateImage ? "-50%" : "28%"})` }}
                 />
 
                 <div
