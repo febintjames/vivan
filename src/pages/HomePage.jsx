@@ -93,7 +93,7 @@ const AnimatedMissionSection = () => {
                 <img
                     src="/ourmission.png"
                     alt="Our Mission"
-                    className={`absolute left-1/2 top-[72%] md:top-[74%] lg:top-[70%] xl:top-[68%] -translate-x-1/2 -translate-y-1/2 z-[4] w-[clamp(230px,42%,620px)] h-auto transition-all duration-[900ms] ease-out ${isIntersecting ? "opacity-100 scale-100" : "opacity-0 scale-75 translate-y-8"}`}
+                    className={`absolute left-1/2 md:left-[88%] lg:left-[86%] xl:left-[84%] 2xl:left-1/2 top-[72%] md:top-[60%] lg:top-[58%] xl:top-[56%] 2xl:top-[68%] -translate-x-1/2 -translate-y-1/2 z-[4] w-[clamp(220px,32%,360px)] md:w-[120px] lg:w-[140px] xl:w-[150px] 2xl:w-[clamp(320px,42%,620px)] h-auto transition-[opacity,transform] duration-[900ms] ease-out ${isIntersecting ? "opacity-100" : "opacity-0 translate-y-4"}`}
                 />
 
                 <div
@@ -261,7 +261,7 @@ const HomePage = ({ setPage, openModal }) => {
             </div>
 
             {/* Floating Money */}
-            <div className="relative w-full h-0 hidden md:block">
+            <div className="relative w-full h-0 hidden 2xl:block">
                 <div className="absolute left-[-8%] sm:left-[5%] xl:left-[200px] top-[-110px] md:top-[-170px] w-[493px] h-[315px] z-0 pointer-events-none float-slow scale-[0.28] sm:scale-50 md:scale-75 xl:scale-100 origin-top-left">
                     <div className="absolute w-[493px] h-[315px] left-0 top-[-250px] blur-[7px] overflow-hidden">
                         <img src="/leftmoney_new.png" className="absolute h-[298.5%] w-[127.23%] left-[-18.48%] top-0 max-w-none block" />
