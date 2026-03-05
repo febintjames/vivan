@@ -68,15 +68,14 @@ const handleTiltReset = (e) => {
 
 /* ─── Animated Mission Section ─── */
 const AnimatedMissionSection = () => {
-    const { targetRef, isIntersecting } = useIntersectionObserver({ threshold: 0.1, rootMargin: "0px 0px -100px 0px" });
+    const { targetRef, isIntersecting } = useIntersectionObserver({ threshold: 0.25, rootMargin: "0px 0px -80px 0px" });
 
     const missionCombinedClipPath = 'polygon(0% 50%, 100% 0%, 100% 50%, 0% 100%)';
 
     return (
         <div
             ref={targetRef}
-            className={`w-full relative flex flex-col items-center justify-center transition-all duration-[1200ms] ease-out z-[5] -mt-[8px] md:mt-[8px] lg:mt-[24px] xl:mt-[40px] pb-[12px] md:pb-[20px] ${isIntersecting ? "opacity-100 translate-y-0" : "opacity-0 translate-y-32"
-                }`}
+            className="w-full relative flex flex-col items-center justify-center z-[5] -mt-[8px] md:mt-[8px] lg:mt-[24px] xl:mt-[40px] pb-[12px] md:pb-[20px]"
         >
             <div className="relative w-full mx-auto pointer-events-none">
                 <div
@@ -93,7 +92,7 @@ const AnimatedMissionSection = () => {
                 <img
                     src="/ourmission.png"
                     alt="Our Mission"
-                    className={`absolute left-1/2 md:left-[88%] lg:left-[86%] xl:left-[84%] 2xl:left-1/2 top-[72%] md:top-[60%] lg:top-[58%] xl:top-[56%] 2xl:top-[68%] -translate-x-1/2 -translate-y-1/2 z-[4] w-[clamp(220px,32%,360px)] md:w-[120px] lg:w-[140px] xl:w-[150px] 2xl:w-[clamp(320px,42%,620px)] h-auto transition-[opacity,transform] duration-[900ms] ease-out ${isIntersecting ? "opacity-100" : "opacity-0 translate-y-4"}`}
+                    className={`absolute left-1/2 md:left-[88%] lg:left-[86%] xl:left-[84%] 2xl:left-1/2 top-[72%] md:top-[60%] lg:top-[58%] xl:top-[56%] 2xl:top-[68%] -translate-x-1/2 -translate-y-1/2 z-[4] w-[clamp(220px,32%,360px)] md:w-[120px] lg:w-[140px] xl:w-[150px] 2xl:w-[clamp(320px,42%,620px)] h-auto transition-[opacity,transform] duration-[650ms] ease-out ${isIntersecting ? "opacity-100 scale-100 translate-y-0" : "opacity-0 scale-75 translate-y-6"}`}
                 />
 
                 <div
