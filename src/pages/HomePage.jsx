@@ -398,14 +398,20 @@ const HomePage = ({ setPage, openModal }) => {
                 <p className="text-[#314158] text-[clamp(14px,1.2vw,18px)] font-inter font-normal leading-[1.8]">Call or WhatsApp us today for a free eligibility check.</p>
                 <div className="flex items-center justify-center gap-5 mt-4">
                     <WhatsAppButton />
-                    <a
-                        href="tel:9567582102"
-                        className="flex items-center justify-center pl-[24px] pr-[4px] py-[4px] rounded-full bg-[#0d2446] cursor-pointer hover:scale-105 transition-transform no-underline"
+                    <button
+                        type="button"
+                        onClick={() => {
+                            setPage('contact');
+                            setTimeout(() => {
+                                document.getElementById('contact-form')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                            }, 0);
+                        }}
+                        className="flex items-center justify-center pl-[24px] pr-[4px] py-[4px] rounded-full bg-[#0d2446] cursor-pointer hover:scale-105 transition-transform no-underline border-0"
                         style={{ boxShadow: '0px 2px 6px 2px rgba(0, 0, 0, 0.15), 0px 1px 2px rgba(0, 0, 0, 0.30)' }}
                     >
                         <div className="text-white text-[16px] font-inter font-semibold leading-[24px] whitespace-nowrap">Call Now</div>
                         <img src="/phoneCallLoop.gif" alt="Phone Call" className="w-[48px] h-[48px] ml-[8px]" />
-                    </a>
+                    </button>
                 </div>
             </div>
 

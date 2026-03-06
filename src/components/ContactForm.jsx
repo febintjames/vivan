@@ -17,7 +17,7 @@ const ContactForm = () => {
         setFormData((prev) => ({ ...prev, [field]: e.target.value }));
 
     return (
-        <div className="bg-[#eff6ff] rounded-lg mt-[80px]">
+        <div id="contact-form" className="bg-[#eff6ff] rounded-lg mt-[80px]">
             <form className="p-[40px] flex flex-col gap-[32px]" onSubmit={(e) => e.preventDefault()}>
                 {/* Title */}
                 <div className="text-black text-[18px] font-normal leading-[32px]">Contact form</div>
