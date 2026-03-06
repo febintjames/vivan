@@ -410,7 +410,7 @@ const HomePage = ({ setPage, openModal }) => {
                         style={{ boxShadow: '0px 2px 6px 2px rgba(0, 0, 0, 0.15), 0px 1px 2px rgba(0, 0, 0, 0.30)' }}
                     >
                         <div className="text-white text-[16px] font-inter font-semibold leading-[24px] whitespace-nowrap">Call Now</div>
-                        <img src="/phoneCallLoop.gif" alt="Phone Call" className="w-10 h-10" />
+                        <img src="/phoneCallLoop.gif" alt="Phone Call" className="w-10 h-10 -ml-2" />
                     </button>
                 </div>
             </div>
