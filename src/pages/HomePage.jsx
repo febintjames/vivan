@@ -397,7 +397,7 @@ const HomePage = ({ setPage, openModal }) => {
                 <h1 className="text-[#0f172b] text-[clamp(30px,4vw,64px)] font-inter font-bold leading-[1.35] mt-0 mb-0">Need a loan or financial guidance?</h1>
                 <p className="text-[#314158] text-[clamp(14px,1.2vw,18px)] font-inter font-normal leading-[1.8]">Call or WhatsApp us today for a free eligibility check.</p>
                 <div className="flex items-center justify-center gap-5 mt-4">
-                    <WhatsAppButton />
+                    <WhatsAppButton className="pl-5 pr-1 py-1" />
                     <button
                         type="button"
                         onClick={() => {
@@ -406,11 +406,11 @@ const HomePage = ({ setPage, openModal }) => {
                                 document.getElementById('contact-form')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
                             }, 0);
                         }}
-                        className="flex items-center justify-center pl-[24px] pr-[4px] py-[4px] rounded-full bg-[#0d2446] cursor-pointer hover:scale-105 transition-transform no-underline border-0"
+                        className="flex items-center justify-center gap-0 pl-5 pr-1 py-1 rounded-full bg-[#0d2446] cursor-pointer hover:scale-105 transition-transform no-underline border-0"
                         style={{ boxShadow: '0px 2px 6px 2px rgba(0, 0, 0, 0.15), 0px 1px 2px rgba(0, 0, 0, 0.30)' }}
                     >
                         <div className="text-white text-[16px] font-inter font-semibold leading-[24px] whitespace-nowrap">Call Now</div>
-                        <img src="/phoneCallLoop.gif" alt="Phone Call" className="w-[48px] h-[48px] ml-[8px]" />
+                        <img src="/phoneCallLoop.gif" alt="Phone Call" className="w-10 h-10" />
                     </button>
                 </div>
             </div>
