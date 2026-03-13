@@ -1,7 +1,8 @@
 import { useState } from "react";
+import emailjs from "@emailjs/browser";
 
 const ContactForm = () => {
-    const [formData, setFormData] = useState({
+    const initialFormData = {
         fullName: "",
         mobile: "",
         email: "",
@@ -11,14 +12,99 @@ const ContactForm = () => {
         salaryAmount: "",
         monthlyIncome: "",
         yearsInOperation: "",
+    };
+    const [formData, setFormData] = useState({
+        ...initialFormData,
     });
+    const [submitState, setSubmitState] = useState({
+        loading: false,
+        message: "",
+        error: false,
+    });
+
+    // Update these env keys in .env with your EmailJS values.
+    const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+    const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_CONTACT_TEMPLATE_ID;
+    const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
     const handleChange = (field) => (e) =>
         setFormData((prev) => ({ ...prev, [field]: e.target.value }));
 
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
+        setSubmitState({ loading: true, message: "", error: false });
+
+        try {
+            if (!EMAILJS_SERVICE_ID || !EMAILJS_TEMPLATE_ID || !EMAILJS_PUBLIC_KEY) {
+                throw new Error(
+                    "Missing EmailJS config. Set VITE_EMAILJS_SERVICE_ID, VITE_EMAILJS_CONTACT_TEMPLATE_ID and VITE_EMAILJS_PUBLIC_KEY in .env."
+                );
+            }
+
+            // Keep these keys in sync with your EmailJS contact template variables.
+            await emailjs.send(
+                EMAILJS_SERVICE_ID,
+                EMAILJS_TEMPLATE_ID,
+                {
+                    formType: "Contact",
+                    fullName: formData.fullName,
+                    name: formData.fullName,
+                    mobile: formData.mobile,
+                    phone: formData.mobile,
+                    email: formData.email,
+                    loanType: formData.loanType,
+                    loanAmount: formData.loanAmount,
+                    employmentType: formData.employmentType,
+                    salaryAmount: formData.salaryAmount,
+                    monthlyIncome: formData.monthlyIncome,
+                    yearsInOperation: formData.yearsInOperation,
+                    message: [
+                        "Contact Form Submission",
+                        `Full Name: ${formData.fullName || "-"}`,
+                        `Mobile: ${formData.mobile || "-"}`,
+                        `Email: ${formData.email || "-"}`,
+                        `Loan Type: ${formData.loanType || "-"}`,
+                        `Loan Amount: ${formData.loanAmount || "-"}`,
+                        `Employment Type: ${formData.employmentType || "-"}`,
+                        `Salary Amount: ${formData.salaryAmount || "-"}`,
+                        `Monthly Income: ${formData.monthlyIncome || "-"}`,
+                        `Years in Operation: ${formData.yearsInOperation || "-"}`,
+                    ].join("\n"),
+                },
+                {
+                    publicKey: EMAILJS_PUBLIC_KEY,
+                }
+            );
+
+            setFormData({ ...initialFormData });
+            setSubmitState({
+                loading: false,
+                message: "Your details submitted. We will touch with you soon.",
+                error: false,
+            });
+        } catch (error) {
+            const resolvedMessage =
+                (error && typeof error === "object" && "text" in error && error.text) ||
+                (error && typeof error === "object" && "message" in error && error.message) ||
+                "Failed to send contact form.";
+
+            const message =
+                error instanceof TypeError
+                    ? "Email service is unavailable. Please try again."
+                    : resolvedMessage;
+
+            setSubmitState({
+                loading: false,
+                message,
+                error: true,
+            });
+        }
+    };
+
     return (
         <div id="contact-form" className="bg-[#eff6ff] rounded-lg mt-[80px]">
-            <form className="p-[40px] flex flex-col gap-[32px]" onSubmit={(e) => e.preventDefault()}>
+            <form className="p-[40px] flex flex-col gap-[32px]" onSubmit={handleSubmit}>
                 {/* Title */}
                 <div className="text-black text-[18px] font-normal leading-[32px]">Contact form</div>
 
@@ -36,16 +122,18 @@ const ContactForm = () => {
                                     onChange={handleChange("fullName")}
                                     className="min-w-[120px] px-4 py-3 bg-white rounded-lg outline outline-1 outline-[#e2e8f0] -outline-offset-[0.5px] text-[16px] font-normal leading-[16px] text-black placeholder:text-[#62748e]"
                                     placeholder="Enter your name"
+                                    required
                                 />
                             </div>
                             <div className="flex flex-col gap-2">
                                 <label className="text-black text-[16px] font-normal leading-[22.4px]">Mobile Number*</label>
                                 <input
-                                    type="number"
+                                    type="tel"
                                     value={formData.mobile}
                                     onChange={handleChange("mobile")}
                                     className="min-w-[120px] px-4 py-3 bg-white rounded-lg outline outline-1 outline-[#e2e8f0] -outline-offset-[0.5px] text-[16px] font-normal leading-[16px] text-black placeholder:text-[#62748e] [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
                                     placeholder="Enter phone number"
+                                    required
                                 />
                             </div>
                             <div className="flex flex-col gap-2">
@@ -173,11 +261,17 @@ const ContactForm = () => {
                 <div className="flex justify-center">
                     <button
                         type="submit"
+                        disabled={submitState.loading}
                         className="w-full min-[1100px]:w-auto px-6 py-4 bg-[#0d2446] text-white text-[14px] min-[1100px]:text-[16px] font-semibold leading-[24px] rounded-full border-none cursor-pointer hover:opacity-90 transition-opacity"
                     >
-                        Submit
+                        {submitState.loading ? "Sending..." : "Submit"}
                     </button>
                 </div>
+                {submitState.message && (
+                    <div className={`text-center text-sm ${submitState.error ? "text-red-600" : "text-green-700"}`}>
+                        {submitState.message}
+                    </div>
+                )}
             </form>
         </div>
     );
