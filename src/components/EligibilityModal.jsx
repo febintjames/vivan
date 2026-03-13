@@ -20,9 +20,13 @@ const EligibilityModal = ({ open, onClose }) => {
     });
 
     // Update these env keys in .env with your EmailJS values.
-    const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+    const EMAILJS_SERVICE_ID =
+        import.meta.env.VITE_EMAILJS_ELIGIBILITY_SERVICE_ID ||
+        import.meta.env.VITE_EMAILJS_SERVICE_ID;
     const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_ELIGIBILITY_TEMPLATE_ID;
-    const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+    const EMAILJS_PUBLIC_KEY =
+        import.meta.env.VITE_EMAILJS_ELIGIBILITY_PUBLIC_KEY ||
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
     if (!open) return null;
 
@@ -46,7 +50,7 @@ const EligibilityModal = ({ open, onClose }) => {
         try {
             if (!EMAILJS_SERVICE_ID || !EMAILJS_TEMPLATE_ID || !EMAILJS_PUBLIC_KEY) {
                 throw new Error(
-                    "Missing EmailJS config. Set VITE_EMAILJS_SERVICE_ID, VITE_EMAILJS_ELIGIBILITY_TEMPLATE_ID and VITE_EMAILJS_PUBLIC_KEY in .env."
+                    "Missing EmailJS config. Set VITE_EMAILJS_ELIGIBILITY_TEMPLATE_ID and either eligibility-specific (VITE_EMAILJS_ELIGIBILITY_SERVICE_ID/VITE_EMAILJS_ELIGIBILITY_PUBLIC_KEY) or shared (VITE_EMAILJS_SERVICE_ID/VITE_EMAILJS_PUBLIC_KEY) values in .env."
                 );
             }
 
@@ -98,7 +102,7 @@ const EligibilityModal = ({ open, onClose }) => {
             setEmp("salaried");
             setSubmitState({
                 loading: false,
-                message: "Your details submitted. We will touch with you soon.",
+                message: "Your details have been successfully submitted. Our team will review your information and contact you shortly to assist with your request.",
                 error: false,
             });
         } catch (error) {
